@@ -92,12 +92,22 @@ function toggleMusic() {
 <script>
 let count = 5;
 const countEl = document.getElementById("count");
+const music = document.getElementById("bgMusic");
 
 const timer = setInterval(() => {
     count--;
-    if (count > 0) {
-        countEl.innerText = count;
-    } else {
+    countEl.innerText = count;
+
+    // 🎵 Start music exactly at 1
+    if (count === 1) {
+        music.play().catch(() => {
+            // fallback if browser blocks autoplay
+            console.log("Autoplay blocked, user can tap play button.");
+        });
+    }
+
+    // Reveal content after countdown finishes
+    if (count === 0) {
         clearInterval(timer);
         document.getElementById("countdownScreen").style.display = "none";
         document.getElementById("mainContent").classList.remove("hidden");
@@ -106,5 +116,7 @@ const timer = setInterval(() => {
 </script>
 
 
+
 </body>
 </html>
+
