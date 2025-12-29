@@ -10,7 +10,9 @@
 <div class="countdown-screen" id="countdownScreen">
     <p class="countdown-text">Ready for a little surprise? 💖</p>
     <h1 id="count">5</h1>
+    <button id="startBtn">Start ✨</button>
 </div>
+
 
 <div class="container hidden" id="mainContent">
 
@@ -90,33 +92,39 @@ function toggleMusic() {
 </script>
 
 <script>
-let count = 5;
+const startBtn = document.getElementById("startBtn");
 const countEl = document.getElementById("count");
 const music = document.getElementById("bgMusic");
 
-const timer = setInterval(() => {
-    count--;
-    countEl.innerText = count;
+let count = 5;
+let timer;
 
-    // 🎵 Start music exactly at 1
-    if (count === 1) {
-        music.play().catch(() => {
-            // fallback if browser blocks autoplay
-            console.log("Autoplay blocked, user can tap play button.");
-        });
-    }
+startBtn.addEventListener("click", () => {
+    startBtn.style.display = "none"; // hide button
 
-    // Reveal content after countdown finishes
-    if (count === 0) {
-        clearInterval(timer);
-        document.getElementById("countdownScreen").style.display = "none";
-        document.getElementById("mainContent").classList.remove("hidden");
-    }
-}, 1000);
+    timer = setInterval(() => {
+
+        // 🎵 start music exactly at 1 (NOW WORKS)
+        if (count === 1) {
+            music.play();
+        }
+
+        count--;
+        countEl.innerText = count;
+
+        if (count < 0) {
+            clearInterval(timer);
+            document.getElementById("countdownScreen").style.display = "none";
+            document.getElementById("mainContent").classList.remove("hidden");
+        }
+
+    }, 1000);
+});
 </script>
 
 
 
 </body>
 </html>
+
 
