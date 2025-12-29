@@ -263,3 +263,15 @@ h1, h2 {
 .hidden {
     display: none;
 }
+#startBtn {
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4d88;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
