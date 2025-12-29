@@ -234,3 +234,33 @@ button {
 h1, h2 {
     font-family: 'Pacifico', cursive;
 }
+.countdown-screen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ffd6e8, #cce7ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    text-align: center;
+}
+
+.countdown-text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+#count {
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    color: #ff4d88;
+    animation: pulse 1s infinite;
+}
+
+/* Hide main content initially */
+.hidden {
+    display: none;
+}
+
